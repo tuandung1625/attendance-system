@@ -19,7 +19,7 @@ System to automatically check attendance by recognizing faces. Users can registe
 
 ## 3. Installation Guide
 
-#### Step 1: Create Virtual Environment
+### Step 1: Create Virtual Environment
 
 For Linux/macOS:
 ```bash
@@ -35,7 +35,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-#### Step 2: Download Face Recognition Model
+### Step 2: Download Face Recognition Model
 
 Download the 'buffalo_sc' model from the following link:
 [Buffalo SC Model](https://drive.google.com/file/d/19I-MZdctYKmVf3nu5Da3HS6KH5LBfdzG/view?usp=sharing)
@@ -72,7 +72,7 @@ attendance_system_app/
 
 ## 6. Running the Application
 
-#### Step 1: Activate Virtual Environment
+### Step 1: Activate Virtual Environment
 
 For Linux/macOS:
 ```bash
@@ -84,7 +84,7 @@ For Windows:
 venv\Scripts\activate
 ```
 
-#### Step 2: Start the Application
+### Step 2: Start the Application
 ```bash
 streamlit run Home.py
 ```
