@@ -2,8 +2,41 @@ import streamlit as st
 from Home import face_rec
 import pandas as pd
 
-st.set_page_config(page_title='Reporting', layout='wide')
-st.subheader('Reporting')
+st.set_page_config(
+    page_title="Reports & Analytics",
+    page_icon="📊",
+    layout="wide"
+)
+
+st.markdown("""
+<style>
+    .report-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        color: white;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# Header
+st.markdown("""
+<div class="report-header">
+    <h1>📊 Reports & Analytics</h1>
+    <p>Comprehensive attendance reports and insights</p>
+</div>
+""", unsafe_allow_html=True)
+
+# Footer with insights
+with st.expander("💡 Tips"):
+    st.markdown("""
+    ### Instructions:
+    1. **Registered Data** - Shows name and role of registered members
+    2. **Logs** - Displays raw attendance log data from the system
+    3. **Attendance Report** - Comprehensive table showing all attendance information including time, name, role, duration, and status
+    """)
 
 # Extract data from Redis
 name = 'attendance:logs'

@@ -77,33 +77,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Navigation Sidebar
-with st.sidebar:
-    st.markdown("### 🧭 Navigation")
-    
-    nav_buttons = [
-        ("🏠 Home", "nav_home", "Home.py"),
-        ("📹 Real Time Prediction", "nav_prediction", "pages/1_Real_Time_Prediction.py"),
-        ("📝 Registration", "nav_registration", "pages/2_Registration_form.py"),
-        ("🗑️ Delete Records", "nav_delete", "pages/3_Delete.py"),
-        ("📊 View Reports", "nav_report", "pages/4_Report.py")
-    ]
-    
-    for label, key, page in nav_buttons:
-        if st.button(label, key=key, use_container_width=True):
-            st.switch_page(page)
-    
-    st.markdown("---")
-    st.markdown("### 📊 Quick Stats")
-    
-    # Get real-time data from Redis
-    try:
-        total_users = len(face_rec.get_all_users()) if hasattr(face_rec, 'get_all_users') else "N/A"
-        st.metric("Total Users", total_users)
-        st.metric("System Uptime", "Online")
-    except:
-        st.metric("Total Users", "Loading...")
-
 # Main header with current time
 current_time = datetime.now().strftime("%B %d, %Y - %H:%M:%S")
 st.markdown(f"""

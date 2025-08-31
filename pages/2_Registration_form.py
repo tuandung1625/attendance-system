@@ -5,10 +5,33 @@ import numpy as np
 from streamlit_webrtc import webrtc_streamer
 import av
 
-st.set_page_config('Registration Form', layout='centered')
-st.subheader('Registration Form')
+st.set_page_config(
+    page_title="Registration Form",
+    page_icon="📝",
+    layout="wide"
+)
 
-# Init registration form
+st.markdown("""
+<style>
+    .registration-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        color: white;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# Header
+st.markdown("""
+<div class="registration-header">
+    <h1>📝 User Registration</h1>
+    <p>Register new users for face recognition attendance system</p>
+</div>
+""", unsafe_allow_html=True)
+
 registration_form = face_rec.RegistrationForm()
 
 # Collect person name and person role
@@ -39,3 +62,26 @@ if st.button('Submit'):
         st.error('Please enter the name : Name cannot be empty or spaces')
     elif check == 'file_false':
         st.error('face_embedding.txt is not found. Please refresh the page and execute again!!!')
+
+# Registration guidelines
+with st.expander("📋 Registration Guidelines"):
+    st.markdown("""
+    ### Photo Requirements:
+    - **Face clearly visible** - No hats, sunglasses, or masks
+    - **Good lighting** - Avoid shadows on face
+    - **Front-facing** - Look directly at camera
+    - **Single person** - Only one face in the image
+    - **High quality** - Clear, not blurry
+    
+    ### Registration Process:
+    1. Fill out all required user details
+    2. Capture or upload a clear face photo
+    3. Preview the image to ensure quality
+    4. Complete registration
+    
+    ### Tips:
+    - Use good lighting for better recognition accuracy
+    - Ensure face takes up 30-50% of the image
+    - Keep a neutral expression
+    - Remove any face coverings
+    """)
